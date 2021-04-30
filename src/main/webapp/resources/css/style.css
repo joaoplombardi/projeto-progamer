@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+body{
+	background: #ddd;
+}
+
+.card-form{
+	width: 25em;
+	margin: 1em auto;
+}
+
+.setup-list-item {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.setup-list-detail {
+    flex: 1 1 0;
+    -ms-flex: 1 1 0;
+}
+
+.setup-name {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.setup-description {
+    margin: 0 0 1rem 0;
+}
+
+.setup-list-action {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.setup-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    align-self: flex-end;
+}
+
+.setup .setup-grid-item.border-1 {
+    border: 1px solid var(--surface-d);
+}
+
+.setup .setup-grid-item .setup-grid-item-top, .setup .setup-grid-item .setup-grid-item-bottom {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.setup .setup-grid-item .setup-grid-item-content {
+    text-align: center;
+}
+
+
+.setup .setup-grid-item .setup-grid-item-top, .setup .setup-grid-item .setup-grid-item-bottom {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.setup .setup-grid-item .setup-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+}

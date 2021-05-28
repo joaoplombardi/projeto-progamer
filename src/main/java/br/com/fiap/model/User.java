@@ -1,6 +1,6 @@
 package br.com.fiap.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "TB_USER")
@@ -21,8 +25,10 @@ public class User {
 	@Column(name = "nm_user")
 	private String name;
 	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "dt_nascimento")
-	private LocalDate dtNascimento;
+	private Date dtNascimento;
 	
 	@Column(name = "ds_email")
 	private String email;
@@ -50,11 +56,11 @@ public class User {
 		this.name = name;
 	}
 
-	public LocalDate getDtNascimento() {
+	public Date getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(LocalDate dtNascimento) {
+	public void setDtNascimento(Date dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 

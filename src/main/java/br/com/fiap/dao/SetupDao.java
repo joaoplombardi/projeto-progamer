@@ -16,8 +16,7 @@ public class SetupDao {
 		manager.getTransaction().begin();
 		manager.persist(setup);
 		manager.getTransaction().commit();
-		
-		manager.close();
+
 	}
 
 	public List<Setup> getAll() {
@@ -25,8 +24,40 @@ public class SetupDao {
 		String jpql = "SELECT s FROM Setup s";
 		TypedQuery<Setup> query = manager.createQuery(jpql, Setup.class);
 		List<Setup> setups = query.getResultList();
-		manager.close();
 		return setups;
+	}
+	
+	public List<Setup> getAllFromUser(Long id) {
+		EntityManager manager = JPAUtil.getEntityManager();
+		TypedQuery<Setup> query = manager.createQuery("SELECT s FROM Setup s WHERE s.owner = :id", Setup.class);
+		query.setParameter("id", id);
+		List<Setup> setups = query.getResultList();
+		return setups;
+	}
+
+	public Setup findById(long id) {
+		EntityManager manager = JPAUtil.getEntityManager();
+		Setup setup = manager.find(Setup.class, id);
+		return setup;
+	}
+
+	public void update(Setup setup) {
+		EntityManager manager = JPAUtil.getEntityManager();
+		
+		manager.getTransaction().begin();
+		manager.merge(setup);
+		manager.flush();
+		manager.getTransaction().commit();
+	}
+
+	public void delete(Setup setup) {
+		EntityManager manager = JPAUtil.getEntityManager();
+		Setup s = manager.find(Setup.class, setup.getId());
+		manager.getTransaction().begin();
+		manager.remove(setup);
+		manager.flush();
+		manager.getTransaction().commit();
+		
 	}
 
 }

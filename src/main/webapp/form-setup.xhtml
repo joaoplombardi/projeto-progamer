@@ -58,7 +58,7 @@
 		<h:form id="table-setups">
 			<div class="card">
 				<p:dataTable var="setup"
-					value="#{setupBean.setups}">
+					value="#{setupBean.setupsFromUser}">
 					<p:column headerText="Name">
 						<h:outputText value="#{setup.name}" />
 					</p:column>
@@ -66,7 +66,11 @@
 					<p:column headerText="Description">
 						<h:outputText value="#{setup.description}" />
 					</p:column>
-
+					
+					<p:column headerText="Id Owner">
+						<h:outputText value="#{setup.owner}" />
+					</p:column>
+					
 					<p:column headerText="Price">
 						<h:outputText value="#{setup.price}" />
 					</p:column>

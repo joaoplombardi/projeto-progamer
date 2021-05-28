@@ -4,11 +4,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class JPAUtil {
+public abstract class JPAUtil {
+	
+	private static final EntityManagerFactory FACTORY = 
+			Persistence.createEntityManagerFactory("progamer-persistence-unit");
+    private static EntityManager manager;
 	public static EntityManager getEntityManager() {
-
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("progamer-persistence-unit");
-	    EntityManager manager = factory.createEntityManager();
-	    return manager;
+		if (manager == null) manager = FACTORY.createEntityManager();
+		return manager;
 	}
 }

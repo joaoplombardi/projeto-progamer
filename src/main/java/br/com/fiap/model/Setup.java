@@ -21,6 +21,9 @@ public class Setup {
 	@Column(name = "nm_setup")
 	private String name;
 	
+	@Column(name = "us_owner")
+	private Long owner;
+	
 	@Column(name = "ds_setup")
 	private String description;
 	
@@ -52,6 +55,23 @@ public class Setup {
 
 	public void setPrice(BigDecimal price) {
 		this.price = price;
+	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Long owner) {
+		this.owner = owner;
 	}
 
 	@Override
